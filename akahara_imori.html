@@ -1,0 +1,53 @@
+<html>
+  <head>
+
+  </head>
+
+  <body>
+
+    <h1>OPEN IMORI</h1>
+
+    <a href="javascript:set_data('akahara_imori');">アカハライモリ</a> <br>
+    <a href="javascript:set_data('shiriken_imori');">シリケンイモリ</a> <br> 
+    <a href="javascript:set_data('madara_imori');">マダライモリ</a> <br>
+    <br>
+
+    <p style="display:inline">Japanese name : </p> <a id="jp-name"></a> <br>
+    <p style="display:inline">English name : </p> <a id="en-name"></a> <br>
+
+    <p style="display:inline">Residence : </p> <a id="residence-list"></a> <br>
+    <div id="regions_div" style="height: 500px; padding:2.5%;"></div>
+
+    <a id="discription">discription text</a>
+
+
+
+    <script type='text/javascript' src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type='text/javascript' src="./src/world_map.js" charset="utf-8"></script>
+    <script type='text/javascript' src="./src/all_data.js" charset="utf-8"></script>
+    <script type='text/javascript' src="./src/parse_data.js" charset="utf-8"></script>
+    <script type='text/javascript'>
+      // data = get_data("akahara_imori"); // all_data.js
+
+      prepare_data();
+
+      function set_data(imori_name){
+        var data = get_detail(imori_name);
+
+        document.getElementById("jp-name").innerText = data["jp_name"];
+        document.getElementById("en-name").innerText = data["en_name"];
+        document.getElementById("discription").innerText = data["discription"];
+
+        residence_str = "";
+        for (var c of data["residence_country"]){
+          residence_str += c[0] + " ";
+        }
+
+        document.getElementById("residence-list").innerText = residence_str;
+
+        draw_map([["country"]].concat(data["residence_country"]));
+      }
+      
+    </script>
+  </body>
+</html>
