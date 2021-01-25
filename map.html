@@ -13,13 +13,22 @@
   google.charts.setOnLoadCallback(drawRegionsMap);
 
    function drawRegionsMap() {
+    //  var data = google.visualization.arrayToDataTable([
+    //    ['Country', "Exist"],
+    //    ['South America', 1],
+    //    ['Canada', 1],
+    //    ['France', 1],
+    //    ['Russia', 1],
+    //    ['Australia', 1]
+    //  ]);
+
      var data = google.visualization.arrayToDataTable([
-       ['Country', "Exist"],
-       ['South America', 1],
-       ['Canada', 1],
-       ['France', 1],
-       ['Russia', 1],
-       ['Australia', 1]
+       ['Country'],
+       ['South America'],
+       ['Canada'],
+       ['France'],
+       ['Russia'],
+       ['Australia']
      ]);
 
      var options = {};
