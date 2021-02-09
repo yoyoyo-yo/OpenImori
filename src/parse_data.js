@@ -37,6 +37,7 @@ function convertCSVtoArray(str){
 
         tmp_data["residence_country"] = country;
         tmp_data["discription"] = parsed[4];
+        tmp_data["img_path"] = parsed[5];
 
         _base_datas[id_name] = tmp_data;
     }

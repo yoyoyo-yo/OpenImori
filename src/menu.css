@@ -1,0 +1,145 @@
+#mobilemenu .item {
+  margin: 0;
+  padding: .75em 1em;
+  color: rgba(0,0,0,.4);
+  font-weight: 700;
+  border-top: 1px solid rgba(34,36,38,.15);
+  -webkit-transition: background .1s ease,color .1s ease;
+  transition: background .1s ease,color .1s ease;
+  cursor: pointer;
+}
+#mobilemenu .title, #mobilemenu .item {
+  font-weight: 700;
+  font-size: 14px;
+}
+#mobilemenu > .title:hover{
+  background: #444444;
+  color: white;
+}
+
+
+#mobilemenu .active.title, #mobilemenu .item:active {
+  color: #a30d76;
+}
+
+#mobilemenu .active.title:hover{
+  color: white;
+}
+
+#mobilemenu .icon:not(.dropdown)  {
+  margin-left: 2px;
+  margin-right: 8px;
+}
+#mobilemenu .dropdown.icon {
+  float: right;
+}
+#mobilemenu > .content {
+  padding: 0px;
+}
+#mobilemenu > .content > .accordion{
+  margin: 0px;
+}
+#mobilemenu > .content > .accordion > div{
+  background: #ffffff;
+  color: #ff830f;
+  padding-left: 30px;
+  border-top: 1px solid #58566e;
+  font-weight: 500;
+}
+
+#mobilemenu > .content > .accordion > div:hover{
+  background: #444444;
+  color: white;
+}
+
+#mobilemenu .title .dropdown.icon {
+  font-size: 18px;
+  margin-top: 0px; 
+}
+#mobilemenu .title .dropdown.icon::before {
+  content: '\f107';
+  font-family: Icons;
+}
+#mobilemenu .active.title .dropdown.icon {
+  -webkit-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+  margin-top: 3px;
+}
+
+#mobilemenu > .content > .accordion > .content {
+  padding: 0px;
+}
+
+#mobilemenu > .content > .accordion > .content > .accordion{
+  margin: 0px;
+}
+
+#mobilemenu > .content > .accordion > .content > .accordion > .item{
+  background: #ffffff;
+  color: #13adb8;
+  padding-left: 50px;
+  font-weight: 500;
+  border-top: 1px solid #45425C;
+}
+
+#mobilemenu > .content > .accordion > .content > .accordion > .item:hover{
+  background: #444444;
+  color: white;
+}
+
+.href-box-imori-img {
+  height: 18px;
+}
+
+
+/* 
+nav {
+  width: 100%;
+}
+ul, li {
+  list-style: none;
+}
+.menu-click, .menu-hover {
+  width: 80%;
+  margin: 0 auto;
+}
+.menu-click ul, .menu-hover ul {
+  display: none;
+}
+.menu-click div {
+  color: #FFFFFF;
+  background-color: #333333;
+  cursor: pointer;
+}
+.menu-hover div {
+  color: #FFFFFF;
+  cursor: pointer;
+}
+.menu {
+  text-align: left;
+  background-color: #666666;
+  margin: 0;
+  padding: 15px 50px;
+}
+.menu + ul {
+  margin: 0;
+  padding: 0;
+}
+.menu + ul li {
+  color: #000000;
+  background-color: #ffffff;
+  /* padding: 15px 80px; */
+  /* border:1px solid black;
+  height:40px;
+}
+
+.menu-list {
+  background: red;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+}
+
+.menu-list:hover {
+  background: blue;
+} */ 

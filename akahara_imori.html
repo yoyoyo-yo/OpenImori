@@ -1,33 +1,148 @@
 <html>
   <head>
 
+    <link rel="stylesheet" href="src/menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
   </head>
 
-  <body>
+  <body style="text-align:center;">
+
+    <div style="height:100px;"></div>
 
     <h1>OPEN IMORI</h1>
 
-    <a href="javascript:set_data('akahara_imori');">アカハライモリ</a> <br>
+
+    <div id="mobilemenu" class="ui styled accordion" style="margin: 50px 20%; width:60%;">
+      <div class="title">
+        Newt
+        <i class="dropdown icon"></i>
+      </div>
+      <div class="content">
+        <div class="accordion">
+          <div class="title">
+            <i class="globe icon"></i>
+            Asia
+            <i class="dropdown icon"></i>
+          </div>
+          <div class="content">
+            <div class="accordion">
+              <div class="item href-box" onclick="javascript:set_data('akahara_imori');">
+                  <img src="data/images_imori/asia/akahara_imori.jpg" class="href-box-imori-img">
+                  &nbsp; &nbsp; &nbsp;
+                  アカハライモリ
+              </div>
+              <div class="item href-box" onclick="javascript:set_data('shiriken_imori');">
+                  <img src="data/images_imori/asia/akahara_imori.jpg" class="href-box-imori-img">
+                  &nbsp; &nbsp; &nbsp;
+                  シリケンイモリ
+              </div>
+            </div>
+          </div>
+
+
+          <div class="title">
+            <i class="globe icon"></i>
+            Europe
+            <i class="dropdown icon"></i>
+          </div>
+          <div class="content">
+            <div class="accordion">
+              <div class="item href-box" onclick="javascript:set_data('madara_imori');">
+                <img src="data/images_imori/europe/madara_imori.jpg" class="href-box-imori-img">
+                &nbsp; &nbsp; &nbsp;
+                マダライモリ
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+
+    <!-- <nav>
+      <ul class="menu-click">
+          <li>
+              <div class="menu">CLICK</div>
+              <ul>
+                  <li>CLICKメニュー1</li>
+                  <li>CLICKメニュー2</li>
+                  <li>CLICKメニュー3</li>
+                  <li>CLICKメニュー4</li>
+                  <li>CLICKメニュー5</li>
+              </ul>
+          </li>
+      </ul>
+      <ul class="menu-hover">
+          <li>
+              <div class="menu">Newt</div>
+              <ul>
+                  <li>HOVERメニュー1</li>
+                  <li>HOVERメニュー2</li>
+                  <li><div class="menu-list" style="" onclick="javascript:set_data('madara_imori');">
+                    <a href="javascript:set_data('madara_imori');">マダライモリ</a>
+                  </div></li>
+                  <li>HOVERメニュー4</li>
+                  <li>HOVERメニュー5</li>
+              </ul>
+          </li>
+      </ul>
+</nav> -->
+
+    <!-- <a href="javascript:set_data('akahara_imori');">アカハライモリ</a> <br>
     <a href="javascript:set_data('shiriken_imori');">シリケンイモリ</a> <br> 
-    <a href="javascript:set_data('madara_imori');">マダライモリ</a> <br>
+    <a href="javascript:set_data('madara_imori');">マダライモリ</a> <br> -->
     <br>
 
     <p style="display:inline">Japanese name : </p> <a id="jp-name"></a> <br>
     <p style="display:inline">English name : </p> <a id="en-name"></a> <br>
 
+    <br>
+    <img id="imori_img" src="" height=150 style="visibility: hidden;"> <br>
+
+    <br>
     <p style="display:inline">Residence : </p> <a id="residence-list"></a> <br>
-    <div id="regions_div" style="width: 900px; height: 500px;"></div>
+    <div id="regions_div" style="width: 100%;"></div>
 
     <p style="display:inline">Discription : </p> <a id="discription">discription text</a>
 
-
+    <div style="height:300px;"></div>
 
     <script type='text/javascript' src="https://www.gstatic.com/charts/loader.js"></script>
+    
     <script type='text/javascript' src="./src/world_map.js" charset="utf-8"></script>
     <script type='text/javascript' src="./src/all_data.js" charset="utf-8"></script>
     <script type='text/javascript' src="./src/parse_data.js" charset="utf-8"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+
+
     <script type='text/javascript'>
-      // data = get_data("akahara_imori"); // all_data.js
+      $('#mobilemenu').accordion()
+
+      $('#mobilemenu .item').click(() => {
+      })
+
+//       $(function() {
+//     var mclick = $('.menu-click > li');
+//   $(mclick).click(function() {
+//     $(this).toggleClass('menu-open');
+//     if ($(this).hasClass('menu-open')) {
+//             $('ul', this).slideDown();
+//         } else {
+//             $('ul', this).slideUp();
+//         }
+//     });
+  
+//     var mhover = $('.menu-hover > li');
+  
+//   $(mhover).hover(function() {
+//     $('ul:not(:animated)', this).slideDown();
+//   }, function() {
+//     $('ul', this).slideUp();
+//   });
+  
+// });
 
       prepare_data();
 
@@ -44,9 +159,16 @@
         }
 
         document.getElementById("residence-list").innerText = residence_str;
-
         draw_map([["country"]].concat(data["residence_country"]));
+        document.getElementById("imori_img").src = data["img_path"];
+
+        document.getElementById("imori_img").style.visibility = "visible";
       }
+
+      // document.getElementById('#mobilemenu').accordion();
+
+      // document.getElementById('#mobilemenu .item').click(() => {
+      // })
       
     </script>
   </body>
