@@ -7,11 +7,11 @@
 
   <body style="text-align:center;">
 
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
     <div style="height:100px;"></div>
 
-    <img src="images/openimori_icon.png" width=200px>
-
-    <h1>OPEN IMORI</h1>
+    <img src="images/repository-open-graph-template.png" width=300px>
 
 
     <div id="mobilemenu" class="ui styled accordion" style="margin: 50px 20%; width:60%;">
@@ -95,11 +95,11 @@
     <a href="javascript:set_data('madara_imori');">マダライモリ</a> <br> -->
     <br>
 
-    <p style="display:inline">Japanese name : </p> <a id="jp-name"></a> <br>
+    <p style="display:inline; transition: .3s;">Japanese name : </p> <a id="jp-name"></a> <br>
     <p style="display:inline">English name : </p> <a id="en-name"></a> <br>
 
     <br>
-    <img id="imori_img" src="" height=150 style="visibility: hidden;"> <br>
+    <img id="imori_img" src="transition:.5s;" height=150 style="visibility: hidden;"> <br>
 
     <br>
     <p style="display:inline">Residence : </p> <a id="residence-list"></a> <br>
@@ -161,7 +161,12 @@
 
         document.getElementById("residence-list").innerText = residence_str;
         draw_map([["country"]].concat(data["residence_country"]));
-        document.getElementById("imori_img").src = data["img_path"];
+        // document.getElementById("imori_img").src = data["img_path"];
+
+        $('#imori_img').fadeOut(500, function() {
+            $('#imori_img').attr("src", data["img_path"]);
+            $('#imori_img').fadeIn(500);
+        });
 
         document.getElementById("imori_img").style.visibility = "visible";
       }
